@@ -1,0 +1,30 @@
+version: "3.8"
+services:
+  config-server:
+    image: your-org/config-server
+    ports:
+      - "8888:8888"
+    environment:
+      - SPRING_PROFILES_ACTIVE=dev
+    networks:
+      - backend
+
+  eureka-server:
+    image: your-org/eureka-server
+    ports:
+      - "8761:8761"
+    networks:
+      - backend
+
+  gateway:
+    image: your-org/gateway-service
+    ports:
+      - "8080:8080"
+    depends_on:
+      - config-server
+      - eureka-server
+    networks:
+      - backend
+
+networks:
+  backend:

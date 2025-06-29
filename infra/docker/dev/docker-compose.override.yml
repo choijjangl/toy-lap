@@ -1,0 +1,14 @@
+version: "3.8"
+services:
+  mariadb:
+    image: mariadb:11
+    container_name: dev-mariadb
+    ports:
+      - "3306:3306"
+    environment:
+      MYSQL_ROOT_PASSWORD: ${}
+      MYSQL_DATABASE:
+    volumes:
+      - mariadb_data:/var/lib/mysql
+    networks:
+      - backend

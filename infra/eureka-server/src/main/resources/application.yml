@@ -1,1 +1,13 @@
-spring.application.name=eureka-server
+server:
+  port: 8761
+
+spring:
+  application:
+    name: eureka-server
+
+eureka:
+  client:
+    register-with-eureka: false  # 자신을 Eureka에 등록하지 않음
+    fetch-registry: false        # 다른 서비스 목록을 가져오지 않음
+  server:
+    wait-time-in-ms-when-sync-empty: 0  # 즉시 서비스 시작 허용

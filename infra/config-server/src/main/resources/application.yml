@@ -5,7 +5,6 @@ spring:
     config:
       server:
         git:
-          #TODO GIT 정보와 토큰의 경우 미니 PC 내에 .env 파일 생성하여 보관할 예정.
           uri: https://github.com/choijjangl/config-repo.git
           username: choijjangl
           password: ${GITHUB_TOKEN}
@@ -14,3 +13,8 @@ spring:
           search-paths: '{application}'  # 애플리케이션별 설정을 검색할 경로
 server:
   port: 8888
+
+eureka:
+  client:
+    register-with-eureka: false
+    fetch-registry: false

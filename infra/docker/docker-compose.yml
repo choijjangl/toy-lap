@@ -1,7 +1,7 @@
 version: "3.8"
 services:
   config-server:
-    image: your-org/config-server
+    image: config-server
     ports:
       - "8888:8888"
     environment:
@@ -10,16 +10,16 @@ services:
       - backend
 
   eureka-server:
-    image: your-org/eureka-server
+    image: eureka-server
     ports:
       - "8761:8761"
     networks:
       - backend
 
   gateway:
-    image: your-org/gateway-service
     ports:
       - "8080:8080"
+    image: ../../backend/gateway-service
     depends_on:
       - config-server
       - eureka-server

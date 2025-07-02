@@ -1,0 +1,20 @@
+spring:
+  application:
+    name: config-server
+  cloud:
+    config:
+      server:
+        git:
+          uri: https://github.com/choijjangl/config-repo.git
+          username: choijjangl
+          password: ${GITHUB_TOKEN}
+          default-label: main
+          clone-on-start: true
+          search-paths: '{application}'  # 애플리케이션별 설정을 검색할 경로
+server:
+  port: 8888
+
+eureka:
+  client:
+    register-with-eureka: false
+    fetch-registry: false

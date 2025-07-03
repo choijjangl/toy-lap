@@ -1,0 +1,12 @@
+spring:
+  datasource:
+    url: jdbc:mariadb://prod-db:3306/authdb
+    username: produser
+    password: prodpass
+  jpa:
+    hibernate:
+      ddl-auto: validate
+eureka:
+  client:
+    service-url:
+      defaultZone: http://eureka-prod:8761/eureka/

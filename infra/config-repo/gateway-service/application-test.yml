@@ -1,0 +1,10 @@
+server:
+  port: 8080
+spring:
+  cloud:
+    gateway:
+      routes:
+        - id: test-route
+          uri: http://localhost:9999
+          predicates:
+            - Path=/test/**

@@ -1,0 +1,31 @@
+name: Sync Config Repo
+
+on:
+  push:
+    paths:
+      - 'infra/config-repo/**'       # config-repo 경로 변경 감지 시 실행
+  workflow_dispatch:                 # 수동 실행도 가능
+
+jobs:
+  sync:
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: Checkout mono-repo
+        uses: actions/checkout@v4
+
+      - name: Configure Git identity
+        run: |
+          git config --global user.email "actions@github.com"
+          git config --global user.name "GitHub Actions"
+
+      - name: Push config-repo to external Git repo
+        run: |
+          cd infra/config-repo
+
+          git init
+          git remote add origin https://x-access-token:${{ secrets.CONFIG_REPO_TOKEN }}@github.com/choijjangl/config-repo.git
+          git checkout -b main
+          git add .
+          git commit -m "🔄 Sync from mono-repo"
+          git push -f origin main

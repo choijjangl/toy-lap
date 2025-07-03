@@ -1,0 +1,28 @@
+spring:
+  datasource:
+    url: jdbc:mariadb://${DEV_SERVER_IP}:3306/authdb
+    username: ${DEV_DB_USER}
+    password: ${DEV_DB_PWD}
+  jpa:
+    hibernate:
+      ddl-auto: update
+      dialect: org.hibernate.dialect.MariaDBDialect
+      hikari:
+        maximum-pool-size: 10
+        connection-timeout: 3000
+
+    show-sql: true
+
+  eureka:
+    client:
+      service-url:
+        defaultZone: http://eureka-server:8761/eureka/
+
+management:
+  endpoints:
+    web:
+      exposure:
+        include: health,info
+  endpoint:
+    health:
+      show-details: always

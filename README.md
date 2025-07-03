@@ -48,3 +48,15 @@
 4. 클린코드로 구현이 되어있는가?
 5. 변수명은 잘지어져 있는가?
 6. RestFul 규약을 정직하게 지키고 활용하였는가?
+
+
+## 현실적인 타엽
+config-repo.git         ← 설정 전용 Git
+auth-service.git        ← 인증 서비스
+user-service.git        ← 유저 서비스
+gateway-service.git     ← API 게이트웨이
+infra.git           
+
+개인 프로젝트인것을 감안하여 해당부분을 하나의 git에서 처리하려합니다.(나중에 분기 가능하도록)
+Git-actions의 경우 root 폴더 내에서 인식하여 root에서 처리를 진행합니다.
+

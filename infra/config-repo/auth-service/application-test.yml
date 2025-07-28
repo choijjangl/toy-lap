@@ -12,3 +12,22 @@ eureka:
   client:
     register-with-eureka: false
     fetch-registry: false
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+#테스트입니다.
